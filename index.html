@@ -1,35 +1,41 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
 <body>
 
-<canvas> id ="canvas1" width="800" height="600" </canvas>
-
+<canvas id> ="canvas1" width="800" height="600" </canvas>
+</body>
 <script>
-
-	Function draw(){
 var c1=document.getElementById("canvas1");
 var context1=c1.getContext("2d");
+var zielony = "green"
+var niebieski = "#blue";
 
+
+
+
+//context1.arc(100,80,50,0, 2*Math.PI);
+//context1.lineWidth=5;
+//context1.fillStyle = "green";
+//context1.fill();
+//context1.stroke();
+
+function draw1(){
+	context1.fillStyl = context1.fillStyle === niebieski ? zielony :niebieski;
+//	context1.strokeStyle = context1.strokeStyle === niebieski ? zielony : niebieski;
+	context1.fill();
+//	context1.stroke();
+}
+
+context1.beginPath();
 context1.arc(100,80,50,0, 2*Math.PI);
-context1.lineWidth=5;
-context1.strokeStyle="blue""green";
-context1.fillStyle = "green";
+context1.fillStyle = niebieski;
+context1.strokeStyle = zielony;
 context1.fill();
 context1.stroke();
 
-//druga pilka//
-}
-//function przenik() {
-//	context1 = setInterval(alertFunc, 1000);
-//}
-//
-//function alertFunc() {
-//	alert("hello!")
-//}
-
+ window.requestAnimationFrame(draw1);
+ var interval = setInterval(draw1, 1000);
 
 </script>
 
-</body>
 </html>
-
