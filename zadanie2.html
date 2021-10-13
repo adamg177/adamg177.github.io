@@ -9,22 +9,24 @@ var c1=document.getElementById("canvas1");
 var context1=c1.getContext("2d");
 'var zielony = "#25BE2A";'
 'var niebieski = "#25bea1";'
-var r=0,g=255,color =  color = "rg("+r+","+g+",0)";
+'var r=0,g=255,color =  color = "rg("+r+","+g+",0)";'
+var grd=context1.createLinearGradient(0,0,170,0);
+grd.addColorStop(0,"green");
+grd.addColorStop(1,"blue");
 
 function draw1(){
-	context1.fillStyle = context1.fillStyle === niebieski ? zielony :niebieski;
-	context1.strokeStyle = context1.strokeStyle === niebieski ? zielony : niebieski;
+	context1.fillStyle = grad
+   context1.fillRect(20,20,150,100);
 	context1.fill();
-	context1.stroke();
 console.log(context1.filiStyle);
+   context1.beginPath();
+   context1.arc(100,80,50,0, 2*Math.PI);
+ 
 }
-context1.beginPath();
-context1.arc(100,80,50,0, 2*Math.PI);
-context1.stroke();
-context1.strokeStyle = zielony;
-context1.lineWidth=5
-context1.fillStyle = niebieski;
-context1.fill();
+
+
+
+
 
 
  window.requestAnimationFrame(draw1);
