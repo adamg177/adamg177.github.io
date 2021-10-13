@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 <body>
 <canvas id ="canvas1" width="800" height="600"> </canvas>
@@ -6,30 +6,21 @@
 <script>
 var c1=document.getElementById("canvas1");
 var context1=c1.getContext("2d");
-// var c = document.getElementById("myCanvas");
-// var ctx = c.getContext("2d");
-
-// var grd = ctx.createLinearGradient(0, 0, 170, 0);
-// grd.addColorStop(0, "black");
-// grd.addColorStop(1, "white");
-
-// ctx.fillStyle = grd;
-// ctx.fillRect(20, 20, 150, 100);
-
-
-ar grd = ctx.createRadialGradient(75,50,5,90,60,100);
-grd.addColorStop(0,"blue");
-grd.addColorStop(1,"green");
-
+var zielony = "#25BE2A";
+var niebieski = "#25bea1";
 
 function draw1(){
-   context1.fillStyle = grd;
+   context1.fillStyle = context1.fillStyle === niebieski ? zielony :niebieski;
+// context1.strokeStyle = context1.strokeStyle === niebieski ? zielony : niebieski;
    context1.fill();
+// context1.stroke();
 console.log(context1.filiStyle);
 }
 context1.beginPath();
 context1.arc(100,80,50,0, 2*Math.PI);
-context1.fillStyle = grd;
+context1.stroke();
+//context1.lineWidth=5
+context1.fillStyle = niebieski;
 context1.fill();
 
 
@@ -37,4 +28,3 @@ context1.fill();
  var interval = setInterval(draw1, 1000);
 </script>
 </html>
-
