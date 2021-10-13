@@ -1,10 +1,37 @@
 <!DOCTYPE html5>
-<html>
+<html> lang="en"
+<head><meta charset="utf-8"></meta>
+	<title>Docunet</title>
+</head>
 <body>
-<canvas id ="canvas1" width="800" height="600"> </canvas>
+<canvas id ="canvas" width="800" height="600"> </canvas>
 </body>
 <script>
+
 var canvas = document.querySelector('canvas');
+
+canvas.width = windows.innerWidth;
+canvas.height = windows.innerHeight;
+
+var c = canvas.getContext('2d')
+
+c.fillRect(100,100,100,100);
+console.log(canvas);
+
+//line
+c.beginPath();
+c.moveTo(50,300);
+c.lineTo(300,100);
+c.lineTo(400,300);
+c.strokeStyle ="fa43a3";
+c.stroke();
+
+
+</script>
+</html>
+
+
+<!-- var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight
 console.log(canvas1);
@@ -40,6 +67,4 @@ context1.fill();
 
 
  window.requestAnimationFrame(draw1);
- var interval = setInterval(draw1, 1000);
-</script>
-</html>
+ var interval = setInterval(draw1, 1000); -->
