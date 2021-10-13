@@ -4,11 +4,12 @@
 <canvas id ="canvas1" width="800" height="600"> </canvas>
 </body>
 <script>
+'https://www.w3schools.com/graphics/canvas_gradients.asp'
 var c1=document.getElementById("canvas1");
 var context1=c1.getContext("2d");
-var zielony = "#25BE2A";
-var niebieski = "#25bea1";
-
+'var zielony = "#25BE2A";'
+'var niebieski = "#25bea1";'
+var r=0,g=255,color =  color = "rg("+r+","+g+",0)";
 
 function draw1(){
 	context1.fillStyle = context1.fillStyle === niebieski ? zielony :niebieski;
