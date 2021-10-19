@@ -33,7 +33,13 @@
 //   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
 //   myGameArea.start();
 // }
+var canv = $("#canvas")[0].getContext("2d");
+canv.canvas.width  = 800;
+canv.canvas.height = 600;
 
-var canvas1
+myGamePiece = new component(30, 30, "red", 10, 120);
+myObstacle = new component(10, 200, "green", 300, 120);
+myGameArea.start();
+
 </script>
 </html>
