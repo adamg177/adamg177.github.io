@@ -2,7 +2,6 @@
 <html lang="en">
 <body>
 <canvas id="canvas">No support canvas</canvas>
-<canvas id ="canvas1" width="800" height="600"> </canvas>
 <script>
 // Proszę przygotować prostą grę, w której (u dołu ekranu) sterujemy(prawo-lewo) prostokątem. Po naciśnięciu spacji strzelamy małymi kulkami, które niszczą (znikają) duże kółka pojawiające się u góry ekranu. Ciągle mają się pojawiać nowe kółka.
 // 2. Jeśli uda się Państwu zrealizować punkt 1 to proszę dodać "licznik"/"punktację". Gdzieś na stronie ma znajdować się liczba "zestrzelonych" kulek.
@@ -55,8 +54,8 @@ function collision(){
 }
 
 document.addEventListener('keydown', function(key) {
-    if(key.keyCode==65 || key.keyCode==40 ) move(-5);
-    if(key.keyCode==68  || key.keyCode==40) move(5);
+    if(key.keyCode==65 || key.keyCode== 37) move(-5);
+    if(key.keyCode==68  || key.keyCode==39) move(5);
     if(key.keyCode==32) shoot();
 }, false);
 
