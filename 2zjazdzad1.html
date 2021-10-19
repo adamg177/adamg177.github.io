@@ -33,7 +33,8 @@
 //   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
 //   myGameArea.start();
 // }
-var canv = $("#canvas")[0].getContext("2d");
+var c1=document.getElementById("canvas");
+var canv=c1.getContext("2d");
 canv.canvas.width  = 800;
 canv.canvas.height = 600;
 
@@ -46,11 +47,30 @@ function move(move){
 // Proszę przygotować prostą grę, w której (u dołu ekranu) sterujemy(prawo-lewo) prostokątem. Po naciśnięciu spacji strzelamy małymi kulkami, które niszczą (znikają) duże kółka pojawiające się u góry ekranu. Ciągle mają się pojawiać nowe kółka.
 
 // 2. Jeśli uda się Państwu zrealizować punkt 1 to proszę dodać "licznik"/"punktację". Gdzieś na stronie ma znajdować się liczba "zestrzelonych" kulek.
+ 
+var enemy_posX = 300;
+var enemy_posY = 300;
 
-var enemy_posX ;
-var enemy_posY ;
+function collisionTrue(){
+    enemy_posX = Math.random()*600+100;
+    enemy_posY = Math.random()*200+50;
+    points++;
+}
+
+
 var bullet_posX;
 var bullet_posY;
+
+ function shoot(){
+     bullet_posX = player_posX+30;
+     bullet_posY = 565;
+}
+
+function bulletUpdate() {
+    bullet_posY -= 20;
+}
+//dodanie kolizji
+
 
 
 </script>
