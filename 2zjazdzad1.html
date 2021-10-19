@@ -71,6 +71,19 @@ function bulletUpdate() {
 }
 //dodanie kolizji
 
+function collision(){
+    if (
+        Math.sqrt(Math.pow((enemy_posX - bullet_posX),2) + Math.pow((enemy_posY - bullet_posY),2))
+        <= (25) )
+        collisionTrue();
+}
+
+document.addEventListener('keydown', function(key) {
+    if(key.keyCode==65 || key.keyCode==40 ) move(-5);
+    if(key.keyCode==68  || key.keyCode==40) move(5);
+    if(key.keyCode==32) shoot();
+}, false);
+
 
 
 </script>
