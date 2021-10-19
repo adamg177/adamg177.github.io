@@ -4,35 +4,11 @@
 <canvas id ="canvas1" width="800" height="600"> </canvas>
 </body>
 <script>
+// Proszę przygotować prostą grę, w której (u dołu ekranu) sterujemy(prawo-lewo) prostokątem. Po naciśnięciu spacji strzelamy małymi kulkami, które niszczą (znikają) duże kółka pojawiające się u góry ekranu. Ciągle mają się pojawiać nowe kółka.
+// 2. Jeśli uda się Państwu zrealizować punkt 1 to proszę dodać "licznik"/"punktację". Gdzieś na stronie ma znajdować się liczba "zestrzelonych" kulek.
 //https://www.w3schools.com/graphics/game_obstacles.asp
-// var myGamePiece;
-// var myObstacle;
-
-// function startGame() {
-//   myGamePiece = new component(30, 30, "red", 10, 120);
-//   myObstacle = new component(10, 200, "green", 300, 120);
-//   myGameArea.start();
-// }
-
-// function updateGameArea() {
-//   myGameArea.clear();
-//   myObstacle.update();
-//   myGamePiece.newPos();
-//   myGamePiece.update();
-// }
-
-
 //https://www.w3schools.com/graphics/game_score.asp
-//score
-// var myGamePiece;
-// var myObstacles = [];
-// var myScore;
 
-// function startGame() {
-//   myGamePiece = new component(30, 30, "red", 10, 160);
-//   myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-//   myGameArea.start();
-// }
 var c1=document.getElementById("canvas");
 var canv=c1.getContext("2d");
 canv.canvas.width  = 800;
@@ -84,6 +60,33 @@ document.addEventListener('keydown', function(key) {
     if(key.keyCode==32) shoot();
 }, false);
 
+var points=0;
+function Update(){
+    canv.clearRect(0, 0, 800, 600);
+
+    bulletUpdate()
+    collision()
+    canv.font = "26px Arial";
+    canv.fillStyle = "black";
+    canv.fillText("Punkty: "+points, canv.canvas.width/2, 25);
+    canv.beginPath();
+    canv.fillStyle = "green";
+    canv.arc(bullet_posX, bullet_posY, 5, 0, Math.PI * 2, false);
+    canv.fill();
+    canv.closePath();
+    canv.fillStyle = "blue";
+    canv.rect(player_posX,575,60,25); 
+    canv.fill();
+    canv.closePath();
+    canv.beginPath();
+    canv.fillStyle = "red";
+    canv.arc(enemy_posX, enemy_posY, 20, 0, Math.PI * 2, false);
+    canv.fill();
+    canv.closePath();
+    canv.beginPath();
+}
+
+setInterval(Update,10);
 
 
 </script>
