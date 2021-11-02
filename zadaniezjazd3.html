@@ -11,6 +11,10 @@
     var canv = c.getContext("2d");
     canv.canvas.width  = 800;
     canv.canvas.height = 600;
+    var positionP = 0;
+    var yPositionP = 0;
+    var positionRB = 0;
+    var ypositionRB =0;
     var distanceLoop = 0;
     var positionCar = 0;
     var accCar = 0;
@@ -87,6 +91,7 @@
         
         canv.beginPath();
         canv.fillStyle = 'green';
+        canv.arc(220+positionP*100, -30+yPositionP, 7, 0, 2 * Math.PI, false);
         canv.fill();
         canv.stroke();
         
@@ -110,7 +115,7 @@
 
     }
     function carCollision(){
-        
+
     }
 
 
