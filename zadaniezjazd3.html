@@ -130,20 +130,37 @@
 
     }
     function carCollision(){
+        if (positionCar < -50 || positionCar >350 ) gameover();
 
     }
 
 
     function drawPoint(){
+        canv.beginPath();
+        canv.arc(220+positionP*100, -30+yPositionP,7,0,2*Math.PI,false);
+        canv.fillStyle='yellow';
+        canv.fill();
+        canv.stroke();
 
 
     }
+
+    function  
 
     function drawRoadBlock(){
+        canv.fillStyle  = "#6a1010";
+        canv.fillRect(-10+positionRB*100, -500+yPositionRB, 265, 35);
 
     }
-    setinterval(draw,5);
 
+    function gameover(){
+        positionCar = 0;
+        points = 0;
+        accCar = 0;
+        accCarTick =0;
+    }
+
+    setinterval(draw,5);
 </script>
 </body>
 </html>
