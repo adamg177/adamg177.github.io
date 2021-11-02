@@ -9,7 +9,8 @@
     <script>
 /*1. Proszę przygotować animację, w której wyścigówka (prostokąt z kołam) jedzie na wprost po drodze.Jako drogę proszę wykorzystać szary prostokąt (od góry do dołu) z białą przerywaną linią (białe prostokąty) na środku oraz biało czerwonymi liniami po bokach, które się przesuwają (symulując ruch). Sterowanie należy zrealizować za pomocą strzałek/kursorów.
 2. Proszę dodać pojawiające się przeszkody, które należy omijać
-3. Proszę dodać "bonusy", które należy "zbierać" samochodem po najechaniu na nie. Liczbę zdobytych bonusów proszę przedstawić w formie punktacji (jako część canvasa, a nie labela poza nim).*/var c = document.getElementById("canvas");
+3. Proszę dodać "bonusy", które należy "zbierać" samochodem po najechaniu na nie. Liczbę zdobytych bonusów proszę przedstawić w formie punktacji (jako część canvasa, a nie labela poza nim).*/
+    var c = document.getElementById("canvas");
     var canv = c.getContext("2d");
     canv.canvas.width  = 800;
     canv.canvas.height = 600;
@@ -122,7 +123,7 @@
     }
 
     function carRight(){
-        if (accCarrTick=0){
+        if (accCarTick=0){
             accCar-=2;
             accCar=50;
         }
