@@ -136,7 +136,7 @@
 
     function drawPoint(){
         canv.beginPath();
-        canv.arc(220+positionP*100, -30+yPositionP,7,0,2*Math.PI,false);
+        canv.arc(220+positionP*100, -30+yPositionP, 7, 0, 2 * Math.PI, false);
         canv.fillStyle='yellow';
         canv.fill();
         canv.stroke();
@@ -155,6 +155,8 @@
         points = 0;
         accCar = 0;
         accCarTick =0;
+        resetRB();
+        resetP();
     }
     function rbCollision(){
         if(yPositionRB > 1200) resetRB();
@@ -190,10 +192,10 @@
         canv.fillText("Score:   "+points, 630, 40);
     }
 
-    setInterval(draw,5);
-    setInterval(physicUpdate,5);
-    setInterval(function () {
-        console.log(points);},100);
+    setInterval(draw, 5);
+    setInterval(physicUpdate, 5);
+    setInterval(function(){
+        console.log(points);}, 100)
 
 </script>
 </body>
