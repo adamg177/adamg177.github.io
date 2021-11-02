@@ -21,7 +21,7 @@
     var distanceLoop = 0;
     var positionCar = 0;
     var accCar = 0;
-    var accCarTick = 0;
+    var accCarTick = 50;
     var points = 0;
 
     document.addEventListener('keydown', function(e) {
@@ -54,6 +54,7 @@
 
    function drawRoad(){
         for(let i = 0; i < 10; i++){
+
             canv.fillStyle  = "red";
             canv.fillRect(150, -200+0+i*50*2+distanceLoop, 30, 50);
             canv.fillStyle  = "white";
@@ -61,6 +62,7 @@
         }
 
         for(let i = 0; i < 10; i++){
+
             canv.fillStyle  = "red";
             canv.fillRect(550, -200+0+i*50*2+distanceLoop, 30, 50);
             canv.fillStyle  = "white";
@@ -70,6 +72,7 @@
             canv.fillRect(180, 0, 550-180, 600);
 
         for(let i = 0; i < 4; i++){
+
             canv.fillStyle  = "white";
             canv.fillRect(265, -200+0+i*200+distanceLoop, 15, 100);
             canv.fillRect(365, -200+0+i*200+distanceLoop, 15, 2000);
@@ -160,8 +163,44 @@
         accCar = 0;
         accCarTick =0;
     }
+    function rbCollision(){
+        if(yPositionRB > 1200) resetRB();
+        if((yPositionRB+35-500 > 500 && yPositionRB-500 < 500+50) && (positionRB*100-10+265 > 200+positionCar && positionRB*100-10 < 200+positionCar+30))gameover();
+    }
 
-    setinterval(draw,5);
+    function pCollision(){
+        if (yPositionP > 880) resetP();
+        if ((yPositionP-30 > 500 && yPositionP-30 < 500+50) && (positionP*100+10 > positionCar && positionP*100 < positionCar+30)){points+=1;resetP();}
+    }
+
+    function resetRB(){
+        positionRB = Math.round(Math.random()*5);
+        yPositionRB = 0;
+    }
+    function resetP(){
+        positionP = Math.round(Math.random()*3);
+        yPositionP=0;
+    }
+
+    function physicUpdate(){
+        carCollision();
+        rbCollision();
+        pCollision();
+        carMove();
+        yPositionRB+-1;
+        yPositionP+-1;
+    }
+
+    function draw() {
+        canv.font = "24px Arial";
+        canv.fillStyle = "white"; 
+        canv.fillText("Score:   "+points, 630, 40);
+    }
+
+    setInterval(draw,5);
+    setInterval(physicUpdate,5);
+    setInterval(function () {
+        console.log(points);},100)
 </script>
 </body>
 </html>
