@@ -17,7 +17,7 @@
     var positionP = 0;
     var yPositionP = 0;
     var positionRB = 0;
-    var ypositionRB =0;
+    var yPositionRB =0;
     var distanceLoop = 0;
     var positionCar = 0;
     var accCar = 0;
@@ -40,16 +40,11 @@
         drawRoad();
         drawCar();
         drawPoint();
-        drawPoint();
         drawRoadBlock();
         drawP()
 
         distanceLoop++;
         if(distanceLoop >200) distanceLoop=0;
-
-
-
-
  }
 
    function drawRoad(){
@@ -100,8 +95,8 @@
     function drawPoint(){
         
         canv.beginPath();
-        canv.fillStyle = 'green';
         canv.arc(220+positionP*100, -30+yPositionP, 7, 0, 2 * Math.PI, false);
+        canv.fillStyle = 'green';
         canv.fill();
         canv.stroke();
         
@@ -128,16 +123,16 @@
 
     function carRight(){
         if (accCarTick=0){
-            accCar-=2;
+            accCar+=2;
             accCar=50;
         }
 
     }
+
     function carCollision(){
         if (positionCar < -50 || positionCar >350 ) gameover();
 
     }
-
 
     function drawPoint(){
         canv.beginPath();
@@ -147,9 +142,7 @@
         canv.stroke();
 
 
-    }
-
-    function  
+    } 
 
     function drawRoadBlock(){
         canv.fillStyle  = "#6a1010";
@@ -200,7 +193,8 @@
     setInterval(draw,5);
     setInterval(physicUpdate,5);
     setInterval(function () {
-        console.log(points);},100)
+        console.log(points);},100);
+
 </script>
 </body>
 </html>
