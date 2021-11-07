@@ -1,12 +1,12 @@
 #wrap{position: relative;float: left;width: 100%;border: 1px solid red;}
 body, html {
-/*//zgrywanie zdjęcia*/
+/*zgrywanie zdjęcia*/
   background-image: url("img/blue.jpg");
 
-/*//pełny wymiar*/
+/*pełny wymiar*/
   height: 100%;
 
-/*//wycentrowanie i wyskalowanie obrazu*/
+/*wycentrowanie i wyskalowanie obrazu*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -39,10 +39,14 @@ function addElement(mydiv)
   my_div = document.getElementById(mydiv);
   document.body.insertBefore(newDiv, my_div);
 
-  newDiv2 = document.createElement("span");
+  newDiv2 = document.createElement("span2");
   newDiv2.innerHTML = "jasiokotek2";
   document.body.insertBefore(newDiv2, my_div.nextSibling);
-
+  
+  newDiv3 = document.createElement("span3");
+  newDiv2.innerHTML = "Grzesiak Adam";
+  document.body.insertBefore(newDiv2, my_div.nextSibling);
+  
   newDiv.classList.add("mystyle");  
 }
 
