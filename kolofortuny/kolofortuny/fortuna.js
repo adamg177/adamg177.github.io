@@ -3,15 +3,15 @@ var game = {
   zdobyte : 0,
   zycia : 1,
 }
-alert(data[0]['country']);
+console.log(data[0]['country']);
 var elem = document.getElementById("panstwa");
 elem.innerHTML =data[0]['country'];
 
-alert(data.length);
-alert(data[0]['country'][2]);
+console.log(data.length);
+console.log(data[0]['country'][2]);
 
  for (var i = 0; i < data[0]['country'].length; i += 1) {
-    alert(data[0]['country'][i]);  
+    console.log(data[0]['country'][i]);  
   }
 
 
@@ -19,14 +19,14 @@ addElement("wrap");
 //LISTENERS
 
 document.getElementById("graj").addEventListener("click", Sprawdz_Litery); 
-alert(game.zycia);
+console.log(game.zycia);
 
 
 //FUNKCJE
 function Sprawdz_Litery(){
   var liter = document.getElementById("wpisz_litere").value;
-  alert(liter);
-  alert(getRandomInt(10,20));
+  console.log(liter);
+  console.log(getRandomInt(10,20));
 }
 
 
