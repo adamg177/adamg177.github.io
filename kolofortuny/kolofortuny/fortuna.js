@@ -12,10 +12,14 @@ document.getElementById("Zamknij".addEventListener("click",autor));
 function start(){
   document.getElementById("start").addEventListener("click",plansza);
   document.getElementById("autor").addEventListener("click",autor)
-  document.getElementById("wrap").style.display = "none";
+  document.getElementById("wrap").style.display="none";
 }
 function autor() {
-  document.getElementById("autorinfo").addEventListener("autor",autor)
+  if document.getElementById("autorinfo").style.display==="none";
+    document.getElementById("autorinfo").addEventListener="";
+    else
+      document.getElementById("autorinfo").style.display="none";
+
 }
 
 function plansza(){
