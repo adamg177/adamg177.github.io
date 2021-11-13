@@ -7,27 +7,26 @@ var wybor = 0;
 var znacznik = [];
 
 document.getElementById("Sprawdz litere".addEventListener("click",Sprawdz_Litery));
-document.getElementById("Zamknij".addEventListener("click",autor));
+document.getElementById("Zamknij".addEventListener("click",author));
 
 function start(){
   document.getElementById("start").addEventListener("click",plansza);
-  document.getElementById("autor").addEventListener("click",autor)
+  document.getElementById("autor").addEventListener("click",author)
   document.getElementById("wrap").style.display="none";
 }
-function autor() {
-  if document.getElementById("autorinfo").style.display==="none";
-    document.getElementById("autorinfo").addEventListener="";
-    else
-      document.getElementById("autorinfo").style.display="none";
-
+function author() {
+  if (document.getElementById("authorinfo").style.display === "none")
+    document.getElementById("authorinfo").style.display = "";
+  else
+    document.getElementById("authorinfo").style.display = "none";
 }
 
 function plansza(){
   document.getElementById("autor").style.display="none";
   document.getElementById("start").style.display="none";
   document.getElementById("wrap").style.display="";
-  document.getElementById("blad").style.display="";
-  document.getElementById("panstwa").style.display="";
+  document.getElementById("blad").innerHTML = "";
+  document.getElementById("panstwa").innerHTML = "";
 
   wybor = getRandomInit(0, data.length)
   console.log(data[wybor]['country']);
@@ -43,7 +42,7 @@ function plansza(){
       newDiv.classList.add("board");
       
     } else
-      addlitera(newDiv, data[wybor]['country'][i], style);
+      addElement(newDiv, data[wybor]['country'][i], style);
   }
   zmianazyc(0);
 }
@@ -86,7 +85,7 @@ function addElement(mydiv){
   newDiv.classList.add("litera")
 }
 
-function getRandomInt(min, max) {
+function random(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
@@ -98,9 +97,30 @@ function zmianapkt(change){
 
 }
 
+if (zgd) {
+    if (wyg()) {
+      alert("Odgadłeś państwo :)");
+      plansza();
+      zmianazyc(5);
+      zmpkt(1)
+      znacznik= [];
+    }
+  } else {
+    zmianazyc(-1);
+    document.getElementById("blad").innerHTML += " " + (litera);
+    if (game.zycia === 0) {
+      alert("Zacznij od nowa poprawna odpowiedź to:\n " + (data[wybor]['country']).toString());
+      plansza();
+      zmianazyc(3);
+      znacznik= [];
+    }
+  }
+  
+
 function zmianazyc(change){
   game.zycia += change;
   document.getElementById("zycie").innerHTML=('Życia:  ' + game.zycia);
 }
+
 start()
 
