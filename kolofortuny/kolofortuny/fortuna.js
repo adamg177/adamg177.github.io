@@ -28,7 +28,13 @@ function sprawdzlit(){
   var litera = document.getElementById("wpisz_litere").value;
   var litery = document.getElementById("litera");
 }
-
+function wyg(){
+  var litery = document.getElementByClassName("litera")
+}
+function dodawanie(){
+    newDiv = document.createElement("span");
+  newDiv.innerHTML = "jasiokotek";
+}
 start()
 
 console.log(data[0]['country']);
