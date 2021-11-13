@@ -5,41 +5,46 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-	<div id="tlo">
-	<div id="panstwa"></div>
+<div id="tlo">
+<div id="panstwa"></div>
 <center>
 	<button id="start"><b>Zacznij grać</b></button>
 	<button id="autor"><b>Autor</b></button>
 </center>
+<br>
+<div id="wrap">
+	<br>
+	<div id="zycie">Twoje Życia: 3</div>
+	<br>
+    <div id="punkty">Udało Ci się wygrać : 0</div>
+	<br>
+	<br>
+	<center>
+		<input onfocus="this.value=''" type="text" placeholder="Wpisz tutaj literę" pattern="[a-zA-Z]{1}" id="wpisz_litere" value="" onkeypress="return /[a-z]/i.test(event.key)" maxlength="1"/>
+	</center>
+	<br>
+	<button id="Sprawdź litere" class="button">Sprawdź litere</button>
+	<br>
+	<div id="blad"> </div>
+	<br>
+	<br>
+</div>
 
-		<div id="wrap"> 
-			<br>
-			<div id="zycie">Twoje Życia: 3</div>
-			<br>
-			<div id="punkty">Udało ci się wygrać: 0</div>
-			<br>
-			<center>
-				<input onfocus="this.value=''" type="text" placeholder="Wpisz tutaj literę" pattern="[a-zA-Z]{1}" id="wpisz_litere" value="" onkeypress="return /[a-z]/i.test(event.key)" maxlength="1"/>
-			</center>
-			<br>
-			<button id="sprawdź litere"class="button">Sprawdz litere </button>
-			<br>
-			<br>
-			<div id="blad"> </div>
-		</div>
-		<div id="autorinfo" style="display:none;">
-			<div id="zamknij">
-				<a href="#" class="button">X</a>
-			</div>
-			Adam Grzesiak
-			<br>
-			<br>
-			196996 Energetyka 221006 Informatyka a kiedy robotyka ? chyba już nigdy :)
-			<br>
-			<br>
-			Ostatni w html w całym składzie. Poza tym bardzo interesuje się porgramowaniem robotów ABB i tym zajmuje się na codzień. Niestety aktualnie szkoda mi przerywać studia ponieważ w życiu do szczęścia brakuje mi <b>"Papierka"</b>
-		</div>
-		<script type="text/javascript" src="countries.js"></script>		
-		<script type="text/javascript" src="fortuna.js"></script>
-	</body>
-	</html>
+<div id="authorinfo" style="display: none;">
+	<div id="zamknij" >
+		<a href="#" class="button">X</a>
+	</div>
+		Adam Grzesiak
+		<br>
+		<br>
+		196996 Energetyka 221006 Informatyka a kiedy robotyka chyba nigdy :)
+		<br>
+		<br>
+		Ostatni w html w całym składzie. Poza tym bardzo interesuje się programowaniem robotów ABB i tym się zajmuje na codzień . Niestety aktualnie szkoda mi przerywać studia ponieważ w życiu do szczęścia brakuje mi <b>"papierka"<b>
+</div>
+</div>
+<script type="text/javascript" src="countries.js"></script>
+<script type="text/javascript" src="fortuna.js"></script>
+</body>
+
+</html>
