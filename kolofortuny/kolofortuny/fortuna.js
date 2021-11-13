@@ -14,9 +14,22 @@ function start(){
   document.getElementById("autor").addEventListener("click",autor)
   document.getElementById("wrap").style.display = "none";
 }
-function function_name(argument) {
-  // body...
+function autor() {
+  document.getElementById("autorinfo").addEventListener("autor",autor)
 }
+
+function plansza(){
+  document.getElementById("autor").style.display="none";
+  document.getElementById("start").style.display="none";
+  document.getElementById("wrap").style.display="";
+
+}
+function sprawdzlit(){
+  var litera = document.getElementById("wpisz_litere").value;
+  var litery = document.getElementById("litera");
+}
+
+start()
 
 console.log(data[0]['country']);
 var elem = document.getElementById("panstwa");
