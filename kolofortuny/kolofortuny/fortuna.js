@@ -26,6 +26,9 @@ function plansza(){
   document.getElementById("autor").style.display="none";
   document.getElementById("start").style.display="none";
   document.getElementById("wrap").style.display="";
+  document.getElementById("blad").style.display="";
+  document.getElementById("panstwa").style.display="";
+
 
 }
 function sprawdzlit(){
@@ -34,7 +37,14 @@ function sprawdzlit(){
 }
 function wyg(){
   var litery = document.getElementByClassName("litera")
+    for (let i = 0; i < litery.length; i += 1) {
+    if (litery[i].classList.contains("ukryte")) {
+      return false;
+    }
+  }
+  return true;
 }
+
 function addElement(mydiv){
 
   var newDiv = document.createElement("span");
@@ -50,6 +60,16 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function zmianapkt(change){
+  game.zdobyte += change;
+  document.getElementById("punkty").innerHTML=('Odgadnięte państwa:  ' + game.zdobyte);
+
+}
+
+function zmianazyc(change){
+  game.zycia += change;
+  document.getElementById("zycie").innerHTML=('Życia:  ' + game.zycia);
+}
 start()
 
 console.log(data[0]['country']);
