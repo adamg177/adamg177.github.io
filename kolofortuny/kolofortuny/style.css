@@ -3,3 +3,6 @@
 #zamknij {float: right;}
 #zycie {position: topright; top: 20px;right: 20px;font-family: Helvetica}
 #blad{position:absolute;width: auto;left:40%;text-decoration: line-through;font-size: 25px;background-color:#fa4e48;opacity:50%;font-family: Helvetica;}
+#punkty {position: topright;top: 30px;right: 10px;font-family: Helvetica;}
+.ukryte {position: relative;background: rgba(255, 255, 255, 1);width: 50px;height: 50px;}
+.ukryte:after {border-radius: 10px;position: absolute;top: 0;left: 0;bottom: 0;right: 0;content: "";background: rgba(255, 255, 255, 1)}

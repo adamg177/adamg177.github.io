@@ -1,7 +1,7 @@
 
 var game = {
   zdobyte : 0,
-  zycia : 1,
+  zycia : 3,
 }
 var wybor = 0;
 var znacznik = [];
@@ -104,23 +104,3 @@ function zmianazyc(change){
 }
 start()
 
-console.log(data[0]['country']);
-var elem = document.getElementById("panstwa");
-elem.innerHTML =data[0]['country'];
-
-console.log(data.length);
-console.log(data[0]['country'][2]);
-
- for (var i = 0; i < data[0]['country'].length; i += 1) {
-    console.log(data[0]['country'][i]);  
-  }
-
-
-addElement("wrap");
-//LISTENERS
-
-document.getElementById("graj").addEventListener("click", Sprawdz_Litery); 
-console.log(game.zycia);
-
-
-//FUNKCJE
