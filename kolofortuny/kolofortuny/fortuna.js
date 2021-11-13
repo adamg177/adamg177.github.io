@@ -7,6 +7,16 @@ var wybor = 0;
 var znacznik = [];
 
 document.getElementById("Sprawdz litere".addEventListener("click",Sprawdz_Litery));
+document.getElementById("Zamknij".addEventListener("click",autor));
+
+function start(){
+  document.getElementById("start").addEventListener("click",plansza);
+  document.getElementById("autor").addEventListener("click",autor)
+  document.getElementById("wrap").style.display = "none";
+}
+function function_name(argument) {
+  // body...
+}
 
 console.log(data[0]['country']);
 var elem = document.getElementById("panstwa");
