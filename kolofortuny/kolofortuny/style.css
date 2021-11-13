@@ -1,2 +1,5 @@
 #wrap{position: relative;text-align: center; float: left;width: 100%;border: 5px solid black;}
 #tlo{position: absolute;width: 100%;height: 100%; background-image: url("img/blue.jpg");background-position: center;background-repeat: no-repeat;background-size: cover;}
+#zamknij {float: right;}
+#zycie {position: topright; top: 20px;right: 20px;font-family: Helvetica}
+#blad{position:absolute;width: auto;left:40%;text-decoration: line-through;font-size: 25px;background-color:#fa4e48;opacity:50%;font-family: Helvetica;}

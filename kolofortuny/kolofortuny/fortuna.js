@@ -29,13 +29,45 @@ function plansza(){
   document.getElementById("blad").style.display="";
   document.getElementById("panstwa").style.display="";
 
+  wybor = getRandomInit(0, data.length)
+  console.log(data[wybor]['country']);
 
+  var newDiv = document.createElement("div");
+  document.getElementById("panstwa").append(newDiv);
+  newDiv.classList.add("board");
+  for (var i = 0; i < data[wybor]['country'].length; i += 1) {
+    var style = "ukryte"
+    if (data[wybor]['country'][i].localeCompare(' ') === 0) {
+      newDiv = document.createElement("div");
+      document.getElementById("panstwa").append(newDiv);
+      newDiv.classList.add("board");
+      
+    } else
+      addlitera(newDiv, data[wybor]['country'][i], style);
+  }
+  zmianazyc(0);
 }
+
 function sprawdzlit(){
   var litera = document.getElementById("wpisz_litere").value;
   var litery = document.getElementById("litera");
+  var zgd = false;
+
+  for (var i = 0; i < litery.length; i += 1) {
+    if (litery[i].innerHTML.toUpperCase().localeCompare(litera.toUpperCase()) === 0) {
+      litery[i].classList.remove("ukryte");
+      zgd = true;
+    }
+  }
+  znacznik.push(litera);
 }
+  
+
 function wyg(){
+ /*  for (var i = 0; i < data[0]['country'].length; i += 1) {
+    console.log(data[0]['country'][i]);  
+  }*/
+
   var litery = document.getElementByClassName("litera")
     for (let i = 0; i < litery.length; i += 1) {
     if (litery[i].classList.contains("ukryte")) {
