@@ -3,6 +3,11 @@ var game = {
   zdobyte : 0,
   zycia : 1,
 }
+var wybor = 0;
+var znacznik = [];
+
+document.getElementById("Sprawdz litere".addEventListener("click",Sprawdz_Litery));
+
 console.log(data[0]['country']);
 var elem = document.getElementById("panstwa");
 elem.innerHTML =data[0]['country'];
