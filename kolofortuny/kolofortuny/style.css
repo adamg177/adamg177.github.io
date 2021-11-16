@@ -4,6 +4,6 @@
 #punkty {position: topright;top: 30px;right: 10px;font-family: Helvetica;}
 #blad{position:absolute;width: auto;left:40%;text-decoration: line-through;font-size: 25px;background-color:#fa4e48;opacity:50%;font-family: Helvetica;}
 #wrap {position: relative;text-align: center; float: left;width: 100%;border: 5px solid black;}
-.litera {position: center;margin: 5px;background: #28e044;box-shadow: 5px 5px 5px black;width: 50px;height: 150px;display: inline-block;vertical-align: middle;line-height: 50px;text-align: center;border-radius: 15px;border: 5px solid #a5abb5;font-size: 50px;font-family: Helvetica ;}
+.litera {position: center;margin: 5px;background: #28e044;box-shadow: 1px 4px 51px 2px rgba(219, 228, 23, 1);;width: 50px;height: 150px;display: inline-block;vertical-align: middle;line-height: 50px;text-align: center;border-radius: 15px;border: 5px solid #cded15;font-size: 50px;font-family: Helvetica ;}
 .ukryte {position: relative;background: rgba(255, 255, 255, 1);width: 50px;height: 50px;}
 .ukryte:after {border-radius: 10px;position: absolute;top: 0;left: 0;bottom: 0;right: 0;content: "";background: rgba(255, 255, 255, 1)}
