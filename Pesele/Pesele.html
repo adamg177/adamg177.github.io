@@ -2,10 +2,20 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <title>Formularz Pesel</title>
 </head>
 <body>
-    <script type="text/javascript" src="find_valid_pesels.js"></script>     
-    <script type="text/javascript" src="show_all_pesels.js"></script>       
-    <script type="text/javascript" src="validate_one_pesel.js"></script>
+<div id="inputs">
+    <input type="text" placeholder="Podaj rok" pattern="[0-9]{4,4}" id="year_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="4"/>
+    <br><br>
+    <input type="text" placeholder="Podaj miesiąc (liczbowo)" pattern="[0-2]{1,2}" id="month_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2"/>
+    <br><br>
+    <input type="text" placeholder="Podaj dzień" pattern="[0-9]{1,2}" id="day_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2"/>
+    <br><br>
+    <input type="text" placeholder="Podaj 5 ostatnich cyfr PESEL" pattern="[0-9]{5,5}" id="numbers_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="5"/>
+    <br><br>
+</div>
+<div id="results"></div>
+<script src="main.js"></script>
 </body>
 </html> 
