@@ -1,14 +1,13 @@
-var pesel = "";
 var year;
 var month = 0;
 var day;
 var last5numbers;
-
+var pesel = "";
 
 onmessage = function(e) {
+    console.log('Wartość została pobrana');
     var validateResult = validate(e.data[0]);
     postMessage(validateResult);
-    console.log('Wartość została pobrana');
 }
 
 function validate(n) {
@@ -29,7 +28,7 @@ function validate(n) {
                 if (day < 10) {
                     day = "0" + day;
                 }
-                succession();
+                subsmision();
                 var numberArray = [];
                 for (var i = 1; i <= pesel.length; i++) {
                     numberArray[i - 1] = parseInt(pesel.substring(i - 1, i))
@@ -48,7 +47,7 @@ function validate(n) {
     return peselArray;
 }
 
-function succession() {
+function subsmision() {
     var stringYear = year.toString()
     if (stringYear.length === 4) stringYear = stringYear.substring(2, 4);
     pesel = stringYear + month + day + last5numbers;
