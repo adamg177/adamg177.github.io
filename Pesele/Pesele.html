@@ -1,21 +1,41 @@
-<!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Formularz Pesel</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>PESEL WEBWORKER</title>
+
 </head>
+
 <body>
-<div id="inputs">
-    <input type="text" placeholder="Podaj rok" pattern="[0-9]{4,4}" id="year_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="4"/>
-    <br><br>
-    <input type="text" placeholder="Podaj miesiąc (liczbowo)" pattern="[0-2]{1,2}" id="month_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2"/>
-    <br><br>
-    <input type="text" placeholder="Podaj dzień" pattern="[0-9]{1,2}" id="day_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2"/>
-    <br><br>
-    <input type="text" placeholder="Podaj 5 ostatnich cyfr PESEL" pattern="[0-9]{5,5}" id="numbers_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="5"/>
-    <br><br>
-</div>
-<div id="results"></div>
-<script src="main.js"></script>
+    <div class="tlo">
+
+        <div class="text">
+            <h1 style="font-size:50px">Formularz Pesel</h1>
+            <h3>Grzesiak Adam</h3>
+            <audio id='mysound'><source src="6zl.mp3"></audio>
+            <button id='btn' onclick='playsound()'>Może muzyczka ?</button>
+            <br><br><br>
+            <div id="inputs">
+                <center>
+                    <input type="text" placeholder="Podaj rok" pattern="[0-9]{4,4}" id="year_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="4" />
+                    <br><br>
+                    <input type="text" placeholder="Podaj miesiąc (liczbowo)" pattern="[0-2]{1,2}" id="month_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" />
+                    <br><br>
+                    <input type="text" placeholder="Podaj dzień" pattern="[0-9]{1,2}" id="day_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" />
+                    <br><br>
+                    <input type="text" placeholder="Podaj 5 ostatnich cyfr PESEL" pattern="[0-9]{5,5}" id="numbers_input" value="" onkeypress="return /[0-9]/i.test(event.key)" maxlength="5" />
+                    <br><br>
+            </div>
+            </center>
+            <br><br><br>
+            <center>
+                <div id="buttons">
+                    <button id="validate">Waliduj</button>
+                    <button id="show">Pokaż</button>
+                    <button id="find">Znajdź</button>
+                </div>
+            </center>
+            <div id="results"></div>
+            <script src="work.js"></script>
 </body>
-</html> 
