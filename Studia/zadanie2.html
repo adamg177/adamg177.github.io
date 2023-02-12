@@ -1,0 +1,47 @@
+<!DOCTYPE html5>
+<html>
+<body>
+<canvas id ="canvas1" width="800" height="600"> </canvas>
+</body>
+<script>
+ var c1=document.getElementById("canvas1");
+    var context1=c1.getContext("2d");
+    var r = 0;
+    var g = 255;
+    var b = 0;
+    var ms = 10; 
+    var valGradColor = 30/ms; 
+    var dirRedToGreen = true; 
+    function draw1(){
+        context1.fillStyle = color(r,g,b);
+       //context1.fillRect(20,20,150,100);
+        console.log(color(r,g,b));
+        context1.fill();
+       context1.beginPath();
+       context1.arc(100,80,50,0, 2*Math.PI);
+
+            if(!dirRedToGreen) {
+            
+            r=(r+valGradColor);
+            g=(g-valGradColor);
+        } else {
+            
+            r=(r-valGradColor);
+            g=(g+valGradColor);
+        }
+        
+        if (r < 0 ) dirRedToGreen = !dirRedToGreen;
+        if (r > 255 ) dirRedToGreen = !dirRedToGreen;
+
+    }
+    
+    function color(rc,gc,bc){
+        return ('rgb('+rc+','+gc+','+bc+')');
+    }
+
+
+     setInterval(draw1, ms);
+
+
+</script>
+</html>

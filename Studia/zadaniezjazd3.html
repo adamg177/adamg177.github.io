@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <canvas id="canvas">No support canvas</canvas>
+    <script>
+/*1. Proszę przygotować animację, w której wyścigówka (prostokąt z kołam) jedzie na wprost po drodze.Jako drogę proszę wykorzystać szary prostokąt (od góry do dołu) z białą przerywaną linią (białe prostokąty) na środku oraz biało czerwonymi liniami po bokach, które się przesuwają (symulując ruch). Sterowanie należy zrealizować za pomocą strzałek/kursorów.
+2. Proszę dodać pojawiające się przeszkody, które należy omijać
+3. Proszę dodać "bonusy", które należy "zbierać" samochodem po najechaniu na nie. Liczbę zdobytych bonusów proszę przedstawić w formie punktacji (jako część canvasa, a nie labela poza nim).*/
+    var c = document.getElementById("canvas");
+    var canv = c.getContext("2d");
+    canv.canvas.width  = 800;
+    canv.canvas.height = 600;
+    var positionP = 0;
+    var yPositionP = 0;
+    var positionRB = 0;
+    var yPositionRB =0;
+    var distanceLoop = 0;
+    var positionCar = 0;
+    var accCar = 0;
+    var accCarTick = 50;
+    var points = 0;
+
+    document.addEventListener('keydown', function(e) {
+        if(e.keyCode==37 ){
+            carLeft();
+        }
+        if(e.keyCode==39 ){
+            carRight();
+        }
+        
+    }, false);
+
+ function draw(){
+    canv.clearRect(0, 0, 800, 600);
+        
+        drawRoad();
+        drawCar();
+        drawPoint();
+        drawRoadBlock();
+        drawP()
+
+        distanceLoop++;
+        if(distanceLoop >200) distanceLoop=0;
+ }
+
+   function drawRoad(){
+        for(let i = 0; i < 10; i++){
+
+            canv.fillStyle  = "red";
+            canv.fillRect(150, -200+0+i*50*2+distanceLoop, 30, 50);
+            canv.fillStyle  = "white";
+            canv.fillRect(150, -200+50+i*50*2+distanceLoop, 30, 50);
+        }
+
+        for(let i = 0; i < 10; i++){
+
+            canv.fillStyle  = "red";
+            canv.fillRect(550, -200+0+i*50*2+distanceLoop, 30, 50);
+            canv.fillStyle  = "white";
+            canv.fillRect(550, -200+50+i*50*2+distanceLoop, 30, 50);
+        }
+            canv.fillStyle  = "black";
+            canv.fillRect(180, 0, 550-180, 600);
+
+        for(let i = 0; i < 4; i++){
+
+            canv.fillStyle  = "white";
+            canv.fillRect(265, -200+0+i*200+distanceLoop, 15, 100);
+            canv.fillRect(365, -200+0+i*200+distanceLoop, 15, 2000);
+            canv.fillRect(465, -200+0+i*200+distanceLoop, 15, 100);
+        }
+    }
+
+    function drawCar(){
+        canv.fillStyle  = "blue";
+        canv.fillRect(200+positionCar, 500, 30, 50);
+        
+        canv.fillStyle  = "white";
+        canv.fillRect(195+positionCar, 510, 5, 15);
+        canv.fillStyle  = "white";
+        canv.fillRect(230+positionCar, 510, 5, 15);
+        
+        canv.fillStyle  = "white";
+        canv.fillRect(195+positionCar, 530, 5, 15);
+        canv.fillStyle  = "white";
+        canv.fillRect(230+positionCar, 530, 5, 15);
+        
+        
+    }   
+
+    function drawPoint(){
+        
+        canv.beginPath();
+        canv.arc(220+positionP*100, -30+yPositionP, 7, 0, 2 * Math.PI, false);
+        canv.fillStyle = 'green';
+        canv.fill();
+        canv.stroke();
+        
+    }  
+
+    function carMove(){
+        
+        if(accCarTick>0){
+            accCarTick--;
+            positionCar += accCar;
+        } else {
+            accCar = 0;
+        }
+    }
+
+    function carLeft(){
+
+        if(accCarTick==0){
+            accCar-=2
+            accCarTick=50;
+        }
+
+    }
+
+    function carRight(){
+        if (accCarTick==0){
+            accCar+=2;
+            accCarTick=50;
+        }
+
+    }
+
+    function carCollision(){
+        if (positionCar < -50 || positionCar >350 ) gameover();
+
+    }
+
+    function drawRoadBlock(){
+        canv.fillStyle  = "#6a1010";
+        canv.fillRect(-10+positionRB*100, -500+yPositionRB, 265, 35);
+
+    }
+
+    function gameover(){
+        positionCar = 0;
+        points = 0;
+        accCar = 0;
+        accCarTick = 0;
+        resetRB();
+        resetP();
+    }
+    function rbCollision(){
+        if(yPositionRB > 1200) resetRB();
+        if((yPositionRB+35-500 > 500 && yPositionRB-500 < 500+50) && (positionRB*100-10+265 > 200+positionCar && positionRB*100-10 < 200+positionCar+30))gameover();
+    }
+
+    function pCollision(){
+        if (yPositionP > 880) resetP();
+        if ((yPositionP-30 > 500 && yPositionP-30 < 500+50) && (positionP*100+10 > positionCar && positionP*100 < positionCar+30)){points+=1;resetP();}
+    }
+
+    function resetRB(){
+        positionRB = Math.round(Math.random()*5);
+        yPositionRB = 0;
+    }
+    function resetP(){
+        positionP = Math.round(Math.random()*3);
+        yPositionP=0;
+    }
+
+    function physicUpdate(){
+        carCollision();
+        rbCollision();
+        pCollision();
+        carMove();
+        yPositionRB+=1;
+        yPositionP+=1;
+    }
+
+    function drawP() {
+        canv.font = "24px Arial";
+        canv.fillStyle = "white"; 
+        canv.fillText("Score:   "+points, 630, 40);
+    }
+
+    setInterval(draw, 5);
+    setInterval(physicUpdate, 5);
+    setInterval(function(){
+        console.log(points);}, 100);
+/*udało się */
+</script>
+</body>
+</html>
