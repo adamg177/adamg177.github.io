@@ -65,27 +65,24 @@
         }
 
         .change-input-projekt {
-            width: calc(50% - 10px); /* Szerokość 50% dla pola "Wybierz projekt" */
+            width: calc(100% - 10px); /* Pełna szerokość dla pola "Wybierz projekt" */
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Fabrykacja Trim</h1>
-        <div class="date">Date: 2023-12-03</div>
+        Farbykacja Trim
+        <div class="date" id="currentDate">
+            <!-- JavaScript wstawi aktualną datę tutaj -->
+        </div>
     </header>
-
-    <div class="container">
-        <!-- Wirtz 1 -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 1</div>
-            <div class="change-input-container">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz projekt" data-zmiana="zmiana1InputProjekt">
-            </div>
-
+    <div class="container" id="mainContainer">
+<!-- Wirtz 1 -->
+<div class="tile">
+    <div class="tile-header">Wirtz 1</div>
     <div>
-        <div class="change-title">Zmiana 1</div>            
+        <div class="change-title">Zmiana 1 placeholder="Wybierz Projekt"</div>            
         <div class="change-input-container">
             <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input1">
             <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input2">
