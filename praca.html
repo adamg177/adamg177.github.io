@@ -53,6 +53,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            align-items: center; /* Dodane, aby elementy były wyśrodkowane w pionie */
         }
 
         .change-input {
@@ -61,6 +62,10 @@
             margin-bottom: 10px;
             padding: 8px;
             font-size: 14px;
+        }
+
+        .change-input-projekt {
+            width: calc(100% - 10px); /* Pełna szerokość dla pola "Wybierz projekt" */
         }
     </style>
 </head>
