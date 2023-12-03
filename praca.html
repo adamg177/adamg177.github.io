@@ -367,9 +367,9 @@
 
     </div>
 
-    <script>
-        // Wstaw aktualną datę przy załadowaniu strony
-        document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDate();
+   <script>
+        // Wstaw aktualną datę z godziną i minutą przy załadowaniu strony
+        document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDateTime();
 
         // Pobierz dane z localStorage i ustaw wartości pól
         const zmianaInputs = document.querySelectorAll('.zmiana-input');
@@ -381,13 +381,15 @@
             input.addEventListener('input', updateLocalStorage);
         });
 
-        // Funkcja aktualizująca datę
-        function getCurrentDate() {
+        // Funkcja aktualizująca datę z godziną i minutą
+        function getCurrentDateTime() {
             const now = new Date();
             const year = now.getFullYear();
             const month = (now.getMonth() + 1).toString().padStart(2, '0');
             const day = now.getDate().toString().padStart(2, '0');
-            return `${year}-${month}-${day}`;
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            return `${year}-${month}-${day} ${hours}:${minutes}`;
         }
 
         // Funkcja aktualizująca dane w localStorage
