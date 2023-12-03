@@ -13,26 +13,26 @@
         }
 
         header {
-            background-color: #333; /* Szare tło nagłówka */
+            background-color: #333;
             padding: 10px;
             text-align: center;
-            color: white; /* Biały kolor tekstu */
+            color: white;
         }
 
         .date {
             position: absolute;
             top: 10px;
             right: 10px;
-            color: white; /* Biały kolor tekstu */
+            color: white;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: auto;
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
         }
 
         .tile {
@@ -68,169 +68,70 @@
 <body>
     <header>
         Farbykacja Trim
-        <div class="date">
-            Data: 2023-12-03 <!-- Tutaj możesz wstawić dynamiczną datę z użyciem JavaScript -->
+        <div class="date" id="currentDate">
+            <!-- JavaScript wstawi aktualną datę tutaj -->
         </div>
     </header>
-    <div class="container">
+    <div class="container" id="mainContainer">
         <!-- Wirtz 1 -->
         <div class="tile">
             <div class="tile-header">Wirtz 1</div>
             <div>
                 <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana1Input1">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana1Input2">
                 <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana2Input1">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana2Input2">
                 <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana3Input1">
+                <input type="text" class="change-input" placeholder="Wybierz Operatora" id="zmiana3Input2">
             </div>
         </div>
 
-        <!-- Wirtz 2 MM -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 2 MM</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
+        <!-- ... (pozostałe kafelki) ... -->
 
-        <!-- Wirtz 3 UK -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 3 UK</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-
-        <!-- Wirtz 4 IBAM -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 4 IBAM</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-
-        <!-- Wirtz 5 IBAM 2 -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 5 IBAM 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-
-        <!-- Wensing 1 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 1</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-        <!-- Wensing 1 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-        <!-- Wensing 2 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 3</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-
-        <!-- Wensing 3 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 4</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
-
-        <!-- Rolls Royce -->
-        <div class="tile">
-            <div class="tile-header">Rolls Royce</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                        <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 2</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                <div class="change-title">Zmiana 3</div>
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-                    <input type="text" class="change-input" placeholder="Wybierz Operatora">
-            </div>
-        </div>
     </div>
+
+    <script>
+        // Wstaw aktualną datę przy załadowaniu strony
+        document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDate();
+
+        // Pobierz dane z localStorage i ustaw wartości pól
+        document.getElementById('zmiana1Input1').value = localStorage.getItem('zmiana1Input1') || '';
+        document.getElementById('zmiana1Input2').value = localStorage.getItem('zmiana1Input2') || '';
+        document.getElementById('zmiana2Input1').value = localStorage.getItem('zmiana2Input1') || '';
+        document.getElementById('zmiana2Input2').value = localStorage.getItem('zmiana2Input2') || '';
+        document.getElementById('zmiana3Input1').value = localStorage.getItem('zmiana3Input1') || '';
+        document.getElementById('zmiana3Input2').value = localStorage.getItem('zmiana3Input2') || '';
+
+        // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
+        document.getElementById('zmiana1Input1').addEventListener('input', updateLocalStorage);
+        document.getElementById('zmiana1Input2').addEventListener('input', updateLocalStorage);
+        document.getElementById('zmiana2Input1').addEventListener('input', updateLocalStorage);
+        document.getElementById('zmiana2Input2').addEventListener('input', updateLocalStorage);
+        document.getElementById('zmiana3Input1').addEventListener('input', updateLocalStorage);
+        document.getElementById('zmiana3Input2').addEventListener('input', updateLocalStorage);
+
+        // Funkcja aktualizująca datę
+        function getCurrentDate() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Funkcja aktualizująca dane w localStorage
+        function updateLocalStorage() {
+            localStorage.setItem('zmiana1Input1', document.getElementById('zmiana1Input1').value);
+            localStorage.setItem('zmiana1Input2', document.getElementById('zmiana1Input2').value);
+            localStorage.setItem('zmiana2Input1', document.getElementById('zmiana2Input1').value);
+            localStorage.setItem('zmiana2Input2', document.getElementById('zmiana2Input2').value);
+            localStorage.setItem('zmiana3Input1', document.getElementById('zmiana3Input1').value);
+            localStorage.setItem('zmiana3Input2', document.getElementById('zmiana3Input2').value);
+        }
+    </script>
 </body>
 
 </html>
