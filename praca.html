@@ -67,6 +67,10 @@
         .change-input-projekt {
             width: calc(100% - 10px); /* Pełna szerokość dla pola "Wybierz projekt" */
         }
+
+.no-production {
+    background-color: yellow;
+}
     </style>
 </head>
 
@@ -85,6 +89,8 @@
 <div class="change-title">
   Zmiana 1
   <select id="wybierz-projekt" name="wybierz-projekt" placeholder="Wybierz Projekt">
+	<option value="G60 Div Bar">Brak produkcji</option>
+<option value="G60 Div Bar">Przezbrojenie</option>
     <option value="G60 Div Bar">G60 Div Bar</option>
     <option value="U10 Div Bar">U10 Div Bar</option>
     <option value="G61 Div Bar">G61 Div Bar</option>
@@ -354,34 +360,54 @@
     </div>
 
     <script>
-        // Wstaw aktualną datę przy załadowaniu strony
-        document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDate();
+// Wstaw aktualną datę przy załadowaniu strony
+document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDate();
 
-        // Pobierz dane z localStorage i ustaw wartości pól
-        const zmianaInputs = document.querySelectorAll('.zmiana-input');
-        zmianaInputs.forEach(input => {
-            const localStorageKey = input.getAttribute('data-zmiana');
-            input.value = localStorage.getItem(localStorageKey) || '';
+// Pobierz dane z localStorage i ustaw wartości pól
+const zmianaInputs = document.querySelectorAll('.zmiana-input');
+zmianaInputs.forEach(input => {
+    const localStorageKey = input.getAttribute('data-zmiana');
+    input.value = localStorage.getItem(localStorageKey) || '';
 
-            // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
-            input.addEventListener('input', updateLocalStorage);
-        });
+    // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
+    input.addEventListener('input', updateLocalStorage);
+});
 
-        // Funkcja aktualizująca datę
-        function getCurrentDate() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = (now.getMonth() + 1).toString().padStart(2, '0');
-            const day = now.getDate().toString().padStart(2, '0');
-            return `${year}-${month}-${day}`;
+// Zaznacz kafelki "Brak produkcji" na żółto
+const wybierzProjektInputs = document.querySelectorAll('select');
+wybierzProjektInputs.forEach(select => {
+    select.addEventListener('change', highlightNoProductionTiles);
+    highlightNoProductionTiles(); // Wywołaj funkcję na początku, aby ustawiała kolory na załadowanie strony
+});
+
+// Funkcja aktualizująca datę
+function getCurrentDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+// Funkcja aktualizująca dane w localStorage
+function updateLocalStorage(event) {
+    const input = event.target;
+    const localStorageKey = input.getAttribute('data-zmiana');
+    localStorage.setItem(localStorageKey, input.value);
+}
+
+// Funkcja podświetlająca kafelki "Brak produkcji" na żółto
+function highlightNoProductionTiles() {
+    const wybierzProjektInputs = document.querySelectorAll('select');
+    wybierzProjektInputs.forEach(select => {
+        const tile = select.closest('.tile');
+        if (select.value === 'Brak produkcji') {
+            tile.classList.add('no-production');
+        } else {
+            tile.classList.remove('no-production');
         }
-
-        // Funkcja aktualizująca dane w localStorage
-        function updateLocalStorage(event) {
-            const input = event.target;
-            const localStorageKey = input.getAttribute('data-zmiana');
-            localStorage.setItem(localStorageKey, input.value);
-        }
+    });
+}
     </script>
 </body>
 
