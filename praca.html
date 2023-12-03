@@ -8,18 +8,24 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 800px;
             margin: auto;
             padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .tile {
             border: 1px solid #ccc;
             padding: 10px;
-            margin-bottom: 10px;
+            width: calc(48% - 10px);
+            box-sizing: border-box;
         }
 
         .tile-header {
@@ -29,14 +35,15 @@
 
         .change-input {
             width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Fabrykacja Trim</h1>
-
+        <!-- Wirtz 1 -->
         <div class="tile">
             <div class="tile-header">Wirtz 1</div>
             <div>
@@ -44,11 +51,10 @@
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
                 <div class="change-title">Zmiana 2</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
             </div>
         </div>
 
+        <!-- Wirtz 2 -->
         <div class="tile">
             <div class="tile-header">Wirtz 2</div>
             <div>
@@ -56,10 +62,47 @@
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
                 <div class="change-title">Zmiana 2</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 3</div>
+            </div>
+        </div>
+
+        <!-- Wirtz 3 -->
+        <div class="tile">
+            <div class="tile-header">Wirtz 3</div>
+            <div>
+                <div class="change-title">Zmiana 1</div>
+                <input type="text" class="change-input" placeholder="Pole do wpisania">
+                <div class="change-title">Zmiana 2</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
             </div>
         </div>
+
+        <!-- Dodaj więcej bloków dla maszyn Wirtz poniżej -->
+        <!-- Kopiuj i wklej powyższe bloki dla kolejnych maszyn, zmieniając numerację i inne informacje -->
+
+        <!-- Wirtz 4 -->
+        <div class="tile">
+            <div class="tile-header">Wirtz 4</div>
+            <div>
+                <div class="change-title">Zmiana 1</div>
+                <input type="text" class="change-input" placeholder="Pole do wpisania">
+                <div class="change-title">Zmiana 2</div>
+                <input type="text" class="change-input" placeholder="Pole do wpisania">
+            </div>
+        </div>
+
+        <!-- Kontynuuj dodawanie bloków dla maszyn Wirtz -->
+
+        <!-- Wirtz 25 -->
+        <div class="tile">
+            <div class="tile-header">Wirtz 25</div>
+            <div>
+                <div class="change-title">Zmiana 1</div>
+                <input type="text" class="change-input" placeholder="Pole do wpisania">
+                <div class="change-title">Zmiana 2</div>
+                <input type="text" class="change-input" placeholder="Pole do wpisania">
+            </div>
+        </div>
+
     </div>
 </body>
 
