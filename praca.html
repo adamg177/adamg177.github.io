@@ -109,39 +109,31 @@
 
 
 <!-- Wirtz 1 -->
-<div class="tile">
-    <div class="tile-header">Wirtz 1</div>
-    <div>
-<div class="change-title">
-  Zmiana 1
-  <select id="wybierz-projekt" name="wybierz-projekt" placeholder="Wybierz Projekt">
-	<option value="G60 Div Bar">Brak produkcji</option>
-<option value="G60 Div Bar">Przezbrojenie</option>
-    <option value="G60 Div Bar">G60 Div Bar</option>
-    <option value="U10 Div Bar">U10 Div Bar</option>
-    <option value="G61 Div Bar">G61 Div Bar</option>
-  </select>
-</div>   
-        <div class="change-input-container">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input1">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input2">
-
-        </div>
-        <div class="change-title">Zmiana 2</div>
-        <div class="change-input-container">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input1">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input2">
-
-        </div>
-        <div class="change-title">Zmiana 3</div>
-        <div class="change-input-container">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input1">
-            <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input2">
-
+    <div class="tile">
+        <div class="tile-header">Wirtz 1</div>
+        <div>
+            <div class="change-title">
+                Zmiana 1
+                <select id="wybierz-projekt-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <!-- opcje projektu -->
+                </select>
+            </div>
+            <div class="change-input-container">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input2">
+            </div>
+            <div class="change-title">Zmiana 2</div>
+            <div class="change-input-container">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input2">
+            </div>
+            <div class="change-title">Zmiana 3</div>
+            <div class="change-input-container">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input2">
+            </div>
         </div>
     </div>
-</div>
-
 
 
         <!-- Wirtz 2 MM -->
@@ -371,19 +363,22 @@
 
     </div>
 
-   <script>
+    <script>
         // Wstaw aktualną datę z godziną i minutą przy załadowaniu strony
         document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDateTime();
 
-        // Pobierz dane z localStorage i ustaw wartości pól
+        // Pobierz dane z localStorage i ustaw wartości pól dla Wirtz 1
+        const wybierzProjekt1 = document.getElementById('wybierz-projekt-1');
+        wybierzProjekt1.value = localStorage.getItem('wybierz-projekt-1') || '';
         const zmianaInputs = document.querySelectorAll('.zmiana-input');
         zmianaInputs.forEach(input => {
             const localStorageKey = input.getAttribute('data-zmiana');
             input.value = localStorage.getItem(localStorageKey) || '';
-
             // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
             input.addEventListener('input', updateLocalStorage);
         });
+        // Dodaj event listener dla wybierzProjekt1, aby aktualizować dane w localStorage po zmianie wyboru
+        wybierzProjekt1.addEventListener('change', updateLocalStorage);
 
         // Funkcja aktualizująca datę z godziną i minutą
         function getCurrentDateTime() {
@@ -399,7 +394,7 @@
         // Funkcja aktualizująca dane w localStorage
         function updateLocalStorage(event) {
             const input = event.target;
-            const localStorageKey = input.getAttribute('data-zmiana');
+            const localStorageKey = input.getAttribute('data-zmiana') || 'wybierz-projekt-1';
             localStorage.setItem(localStorageKey, input.value);
         }
     </script>
