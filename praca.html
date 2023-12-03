@@ -53,11 +53,31 @@
             box-sizing: border-box;
             margin-bottom: 10px;
         }
+
+        /* Dodane style */
+        header {
+            background-color: #333; /* Szare tło nagłówka */
+            padding: 10px;
+            text-align: center;
+            color: white; /* Biały kolor tekstu */
+        }
+
+        .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333; /* Kolor daty */
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <header>
+        Farbykacja Trim
+        <div class="date">
+            Data: 2023-12-03 <!-- Tutaj możesz wstawić dynamiczną datę z użyciem JavaScript -->
+        </div>
+    </header>    <div class="container">
         <!-- Wirtz 1 -->
         <div class="tile">
             <div class="tile-header">Wirtz 1</div>
