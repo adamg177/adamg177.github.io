@@ -17,6 +17,15 @@
             padding: 10px;
             text-align: center;
             color: white;
+            position: relative; /* Dodane dla pozycjonowania */
+        }
+
+        header img {
+            height: 50px; /* Dostosuj wysokość obrazu do wysokości paska */
+            position: absolute;
+            top: 50%; /* Umieść obraz na środku paska */
+            transform: translateY(-50%); /* Skoryguj pionowe pozycjonowanie na środek */
+            left: 10px; /* Dodatkowy odstęp od lewej strony */
         }
 
         .date {
@@ -72,7 +81,8 @@
 
 <body>
     <header>
-        Farbykacja Trim
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Norsk_Hydro.svg/800px-Norsk_Hydro.svg.png" alt="Logo" />
+        Fabrykacja Trim
         <div class="date" id="currentDate">
             <!-- JavaScript wstawi aktualną datę tutaj -->
         </div>
