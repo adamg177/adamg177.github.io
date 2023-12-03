@@ -14,15 +14,15 @@
 
         header {
             background-color: #333;
-            padding: 10px;
+            padding: 18px;
             text-align: center;
             color: white;
             position: relative;
         }
 
         header img {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             position: absolute;
             top: 0px; /* Zmiana wartości dla lepszego ułożenia w lewym górnym rogu */
             left: 0px; /* Zmiana wartości dla lepszego ułożenia w lewym górnym rogu */
@@ -402,6 +402,29 @@
             const localStorageKey = input.getAttribute('data-zmiana') || 'wybierz-projekt-1';
             localStorage.setItem(localStorageKey, input.value);
         }
+
+        // Lista plików HTML do przełączania
+const filesToSwitch = ['praca.html', 'praca2.html'];
+
+// Funkcja do przełączania między plikami co minutę
+function switchHTMLFile() {
+    let currentIndex = 0;
+
+    // Funkcja, która zmienia plik HTML
+    function changeFile() {
+        const currentFile = filesToSwitch[currentIndex];
+        window.location.href = currentFile;
+    }
+
+    // Uruchom funkcję zmiany pliku co minutę
+    setInterval(() => {
+        changeFile();
+        currentIndex = (currentIndex + 1) % filesToSwitch.length;
+    }, 10000); // 60000 milisekund to 1 minuta
+}
+
+// Wywołaj funkcję, aby rozpocząć automatyczne przełączanie plików
+switchHTMLFile();
     </script>
 </body>
 
