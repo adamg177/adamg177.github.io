@@ -33,11 +33,15 @@
             margin-bottom: 5px;
         }
 
+        .change-input-container {
+            display: flex;
+            gap: 10px;
+        }
+
         .change-input {
-            width: 48%;
+            width: 100%;
             box-sizing: border-box;
             margin-bottom: 10px;
-            display: inline-block;
         }
     </style>
 </head>
@@ -48,10 +52,10 @@
         <div class="tile">
             <div class="tile-header">Wirtz 1</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
+                <div class="change-input-container">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                </div>
                 <div class="change-title">Zmiana 3</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
             </div>
@@ -61,10 +65,23 @@
         <div class="tile">
             <div class="tile-header">Wirtz 2</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
+                <div class="change-input-container">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                </div>
+                <div class="change-title">Zmiana 3</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
+            </div>
+        </div>
+
+        <!-- Wirtz 3 -->
+        <div class="tile">
+            <div class="tile-header">Wirtz 3</div>
+            <div>
+                <div class="change-input-container">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                </div>
                 <div class="change-title">Zmiana 3</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
             </div>
@@ -73,30 +90,15 @@
         <!-- Dodaj więcej bloków dla maszyn Wirtz poniżej -->
         <!-- Kopiuj i wklej powyższe bloki dla kolejnych maszyn, zmieniając numerację i inne informacje -->
 
-        <!-- Wirtz 3 -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 3</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-            </div>
-        </div>
-
-        <!-- Kontynuuj dodawanie bloków dla maszyn Wirtz -->
-
         <!-- Wirtz 25 -->
         <div class="tile">
             <div class="tile-header">Wirtz 25</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input" placeholder="Pole do wpisania">
-                <div class="change-title">Zmiana 3a</div>
+                <div class="change-input-container">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                    <input type="text" class="change-input" placeholder="Pole do wpisania">
+                </div>
+                <div class="change-title">Zmiana 3</div>
                 <input type="text" class="change-input" placeholder="Pole do wpisania">
             </div>
         </div>
