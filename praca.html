@@ -1,93 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabrykacja Trim</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+/* Dodano styl dla szerokości placeholdera */
+select {
+    min-width: 0px;
+    font-size: 20px;
+}
 
-        header {
-            background-color: #333;
-            padding: 18px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
+/* Pozostała część stylu */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-        header img {
-            width: 45px;
-            height: 45px;
-            position: absolute;
-            top: 0px; /* Zmiana wartości dla lepszego ułożenia w lewym górnym rogu */
-            left: 0px; /* Zmiana wartości dla lepszego ułożenia w lewym górnym rogu */
-            background-color: white;
-            padding: 5px;
-        }
+header {
+    background-color: #333;
+    padding: 18px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
 
-        .date {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-        }
+header img {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+    padding: 5px;
+}
 
-        .container {
-            max-width: 100%;
-            margin: auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+}
 
-        .tile {
-            border: 1px solid #ccc;
-            padding: 20px;
-            width: calc(25% - 20px);
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
+.container {
+    max-width: 100%;
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    justify-content: space-between;
+    font-size: 10px;
+}
 
-        .tile-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
+.tile {
+    border: 1px solid #ccc;
+    padding: 20px;
+    flex: 1;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 25px;
+}
 
-        .change-input-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center; /* Dodane, aby elementy były wyśrodkowane w pionie */
-        }
+.tile-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
 
-        .change-input {
-            width: calc(50% - 10px);
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            padding: 8px;
-            font-size: 14px;
-        }
+.change-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
 
-        .change-input-projekt {
-            width: calc(100% - 10px); /* Pełna szerokość dla pola "Wybierz projekt" */
-        }
+.change-input {
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    padding: 7px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.change-input-projekt {
+    width: calc(100% - 10px);
+}
+
+@media screen and (max-width: 1200px) {
+    .tile {
+        flex: 1 0 calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tile {
+        flex: 1 0 calc(100% - 10px);
+    }
+}
     </style>
 </head>
 
 <body>
     <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Norsk_Hydro.svg/800px-Norsk_Hydro.svg.png" alt="Logo" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Norsk_Hydro.svg/800px-Norsk_Hydro.svg.png" alt="Logo" id="logo" />
         Fabrykacja Trim
-        <div class="date" id="currentDate">
-            <!-- JavaScript wstawi aktualną datę tutaj -->
-        </div>
+        <div class="date" id="currentDate"></div>
+        <button id="clearOperators" style="display: none;">Wyczyść Operatorów</button>
     </header>
     <div class="container" id="mainContainer">
 
@@ -95,336 +117,561 @@
         <div class="tile">
             <div class="tile-header">ABB 7</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
+                <div class="change-title">
+                    Zmiana 1
+                    <br>
+                    <select id="wybierz-projekt-1-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                     <option value="Do końca materiału">Do końca materiału</option>
+                      <option value="F44 Upper LH">F44 Upper LH</option>
+                      <option value="F44 Upper RH">F44 Upper RH</option>
+                      <option value="C257 E-Line">C257 E-Line</option>
+                  </select>
+                  <select id="wybierz-projekt-1-2" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <option value=""></option>   
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="F44 Upper LH">F44 Upper LH</option>
+                    <option value="F44 Upper RH">F44 Upper RH</option>
+                    <option value="C257 E-Line">C257 E-Line</option>
+                              </select>
+                              <br><br>  
+                </div>
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input1">
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input2">
                 <div class="change-title">Zmiana 2</div>
+                
+                <select id="wybierz-projekt-1-3" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="F44 Upper LH">F44 Upper LH</option>
+                    <option value="F44 Upper RH">F44 Upper RH</option>
+                    <option value="C257 E-Line">C257 E-Line</option>
+                              </select>
+                             
+                              <select id="wybierz-projekt-1-4" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>    
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="F44 Upper LH">F44 Upper LH</option>
+                                <option value="F44 Upper RH">F44 Upper RH</option>
+                                <option value="C257 E-Line">C257 E-Line</option>
+                                          </select>
+                                          <br><br>  
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input1">
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input2">
                 <div class="change-title">Zmiana 3</div>
+                
+                <select id="wybierz-projekt-1-5" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="F44 Upper LH">F44 Upper LH</option>
+                    <option value="F44 Upper RH">F44 Upper RH</option>
+                    <option value="C257 E-Line">C257 E-Line</option>
+                              </select>
+                              <select id="wybierz-projekt-1-6" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>    
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="F44 Upper LH">F44 Upper LH</option>
+                                <option value="F44 Upper RH">F44 Upper RH</option>
+                                <option value="C257 E-Line">C257 E-Line</option>
+                                          </select>
+                                          <br><br>  
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input1">
                 <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input2">
             </div>
         </div>
 
-    <!-- Wirtz 1 -->
-    <div class="tile">
-        <div class="tile-header">Wirtz 1</div>
-        <div>
-            <div class="change-title">
-                Zmiana 1
-                <select id="wybierz-projekt-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
-                   
-	<option value="G60 Div Bar">Brak produkcji</option>
-<option value="G60 Div Bar">Przezbrojenie</option>
-    <option value="G60 Div Bar">G60 Div Bar</option>
-    <option value="U10 Div Bar">U10 Div Bar</option>
-    <option value="G61 Div Bar">G61 Div Bar</option>
-              </select>
-            </div>
-            <div class="change-input-container">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana1Input2">
-            </div>
-            <div class="change-title">Zmiana 2</div>
-            <div class="change-input-container">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana2Input2">
-            </div>
-            <div class="change-title">Zmiana 3</div>
-            <div class="change-input-container">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana3Input2">
+        <!-- Wirtz 1 -->
+        <div class="tile">
+            <div class="tile-header">Wirtz 1</div>
+            <div>
+                <div class="change-title">
+                    Zmiana 1
+                    <br>
+                    <select id="wybierz-projekt-2-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                        <option value="Brak produkcji">Brak produkcji</option>
+                        <option value="Przezbrojenie">Przezbrojenie</option>
+                        <option value="Do końca materiału">Do końca materiału</option>
+                        <option value="G60 Div Bar">G60 Div Bar</option>
+                        <option value="U10 Div Bar">U10 Div Bar</option>
+                        <option value="G61 Div Bar">G61 Div Bar</option>
+                        <option value="G61 Div Bar">U25 QTR</option>
+                  </select>
+                  <select id="wybierz-projekt-2-2" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <option value=""></option>     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="G61 Div Bar">U25 QTR</option>
+                              </select>
+                              <br><br>  
+                </div>
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input2">
+                <div class="change-title">Zmiana 2</div>
+                
+                <select id="wybierz-projekt-2-3" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="G61 Div Bar">U25 QTR</option>
+                              </select>
+                             
+                              <select id="wybierz-projekt-2-4" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>    
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="G60 Div Bar">G60 Div Bar</option>
+                                <option value="U10 Div Bar">U10 Div Bar</option>
+                                <option value="G61 Div Bar">G61 Div Bar</option>
+                                <option value="G61 Div Bar">U25 QTR</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input2">
+                <div class="change-title">Zmiana 3</div>
+                
+                <select id="wybierz-projekt-2-5" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="G61 Div Bar">U25 QTR</option>
+                              </select>
+                              <select id="wybierz-projekt-2-6" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>     
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="G60 Div Bar">G60 Div Bar</option>
+                                <option value="U10 Div Bar">U10 Div Bar</option>
+                                <option value="G61 Div Bar">G61 Div Bar</option>
+                                <option value="G61 Div Bar">U25 QTR</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input2">
             </div>
         </div>
-    </div>
-
 
 
         <!-- Wirtz 2 MM -->
         <div class="tile">
             <div class="tile-header">Wirtz 2 MM</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana7Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana7Input2">
+                <div class="change-title">
+                    Zmiana 1
+                    <br>
+                    <select id="wybierz-projekt-3-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                        <option value="Brak produkcji">Brak produkcji</option>
+                        <option value="Przezbrojenie">Przezbrojenie</option>
+                        <option value="Do końca materiału">Do końca materiału</option>
+                        <option value="PSA OWB FD">PSA OWB FD</option>
+                        <option value="PSA OWB RD">PSA OWB RD</option>
+                        <option value="C257 OWB FD">C257 OWB FD</option>
+                        <option value="G60 OWB FD">C257 OWB FD</option>
+                        <option value="G60 OWB RD">C257 OWB FD</option>
+                  </select>
+                  <select id="wybierz-projekt-3-2" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <option value=""></option>   
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">PSA OWB FD</option>
+                    <option value="PSA OWB RD">PSA OWB RD</option>
+                    <option value="C257 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB RD">C257 OWB FD</option>
+                              </select>
+                              <br><br>  
+                </div>
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input2">
                 <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana8Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana8Input2">
+                
+                <select id="wybierz-projekt-3-3" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">PSA OWB FD</option>
+                    <option value="PSA OWB RD">PSA OWB RD</option>
+                    <option value="C257 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB RD">C257 OWB FD</option>
+                              </select>
+                             
+                              <select id="wybierz-projekt-3-4" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>     
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="PSA OWB FD">PSA OWB FD</option>
+                                <option value="PSA OWB RD">PSA OWB RD</option>
+                                <option value="C257 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB RD">C257 OWB FD</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input2">
                 <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana9Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana9Input2">
+                
+                <select id="wybierz-projekt-3-5" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">PSA OWB FD</option>
+                    <option value="PSA OWB RD">PSA OWB RD</option>
+                    <option value="C257 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB FD">C257 OWB FD</option>
+                    <option value="G60 OWB RD">C257 OWB FD</option>
+                              </select>
+                              <select id="wybierz-projekt-3-6" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>     
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="PSA OWB FD">PSA OWB FD</option>
+                                <option value="PSA OWB RD">PSA OWB RD</option>
+                                <option value="C257 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB RD">C257 OWB FD</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input2">
             </div>
         </div>
 
-        <!-- Wirtz 3 UK -->
+        <!-- Wirtz 3 -->
         <div class="tile">
-            <div class="tile-header">Wirtz 3 UK</div>
+            <div class="tile-header">Wirtz 3</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana10Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana10Input2">
+                <div class="change-title">
+                    Zmiana 1
+                    <br>
+                    <select id="wybierz-projekt-3-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                        <option value="Brak produkcji">Brak produkcji</option>
+                        <option value="Przezbrojenie">Przezbrojenie</option>
+                        <option value="Do końca materiału">Do końca materiału</option>
+                        <option value="G60 Div Bar">G60 Div Bar</option>
+                        <option value="U10 Div Bar">U10 Div Bar</option>
+                        <option value="G61 Div Bar">G61 Div Bar</option>
+                        <option value="X290 Fix/OWB">U25 QTR</option>
+                        <option value="C257_Eline">U25 QTR</option>
+                        <option value="X290_Eline">U25 QTR</option>
+                  </select>
+                  <select id="wybierz-projekt-3-2" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <option value=""></option>   
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="X290 Fix/OWB">U25 QTR</option>
+                    <option value="C257_Eline">U25 QTR</option>
+                    <option value="X290_Eline">U25 QTR</option>
+                              </select>
+                              <br><br>  
+                </div>
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input2">
                 <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana11Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana11Input2">
+                
+                <select id="wybierz-projekt-3-3" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="X290 Fix/OWB">U25 QTR</option>
+                    <option value="C257_Eline">U25 QTR</option>
+                    <option value="X290_Eline">U25 QTR</option>
+                              </select>
+                             
+                              <select id="wybierz-projekt-3-4" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>   
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="G60 Div Bar">G60 Div Bar</option>
+                                <option value="U10 Div Bar">U10 Div Bar</option>
+                                <option value="G61 Div Bar">G61 Div Bar</option>
+                                <option value="X290 Fix/OWB">U25 QTR</option>
+                                <option value="C257_Eline">U25 QTR</option>
+                                <option value="X290_Eline">U25 QTR</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input2">
                 <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana12Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana12Input2">
+                
+                <select id="wybierz-projekt-3-5" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="G60 Div Bar">G60 Div Bar</option>
+                    <option value="U10 Div Bar">U10 Div Bar</option>
+                    <option value="G61 Div Bar">G61 Div Bar</option>
+                    <option value="X290 Fix/OWB">U25 QTR</option>
+                    <option value="C257_Eline">U25 QTR</option>
+                    <option value="X290_Eline">U25 QTR</option>
+                              </select>
+                              <select id="wybierz-projekt-3-6" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>   
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="G60 Div Bar">G60 Div Bar</option>
+                                <option value="U10 Div Bar">U10 Div Bar</option>
+                                <option value="G61 Div Bar">G61 Div Bar</option>
+                                <option value="X290 Fix/OWB">U25 QTR</option>
+                                <option value="C257_Eline">U25 QTR</option>
+                                <option value="X290_Eline">U25 QTR</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input2">
             </div>
         </div>
+
 
         <!-- Wirtz 4 IBAM -->
         <div class="tile">
             <div class="tile-header">Wirtz 4 IBAM</div>
             <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana13Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana13Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana14Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana14Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana15Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana15Input2">
-            </div>
-        </div>
+                <div class="change-title">
+                    Zmiana 1
+                    <br>
+                    <select id="wybierz-projekt-4-1" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                        <option value="Brak produkcji">Brak produkcji</option>
+                        <option value="Przezbrojenie">Przezbrojenie</option>
+                        <option value="Do końca materiału">Do końca materiału</option>
+                        <option value="PSA OWB FD">F44 OWB FD</option>
+                        <option value="PSA OWB RD">F44 OWB RD</option>
 
-        <!-- Wirtz 5 IBAM 2 -->
-        <div class="tile">
-            <div class="tile-header">Wirtz 5 IBAM 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana16Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana16Input2">
+                  </select>
+                  <select id="wybierz-projekt-4-2" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                    <option value=""></option>   
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">F44 OWB FD</option>
+                    <option value="PSA OWB RD">F44 OWB RD</option>
+                              </select>
+                              <br><br>  
+                </div>
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana4Input2">
                 <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana17Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana17Input2">
+                
+                <select id="wybierz-projekt-4-3" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                     
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">F44 OWB FD</option>
+                    <option value="PSA OWB RD">F44 OWB RD</option>
+                              </select>
+                             
+                              <select id="wybierz-projekt-4-4" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                                <option value=""></option>   
+   
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="PSA OWB FD">F44 OWB FD</option>
+                                <option value="PSA OWB RD">F44 OWB RD</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana5Input2">
                 <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana18Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana18Input2">
-            </div>
-        </div>
-
-        <!-- Maka 1 -->
-        <div class="tile">
-            <div class="tile-header">Maka 1</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana19Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana19Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana20Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana20Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana21Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana21Input2">
-            </div>
-        </div>
-
-        <!-- Aida 80 -->
-        <div class="tile">
-            <div class="tile-header">Aida 80</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana22Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana23Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana24Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana24Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana25Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana25Input2">
-            </div>
-        </div>
-
-        <!-- Giętarka 2D 1 -->
-        <div class="tile">
-            <div class="tile-header">Giętarka 2D 1</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana26Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana26Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana27Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana27Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana28Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana28Input2">
-            </div>
-        </div>
-
-        <!-- Maka 2 -->
-        <div class="tile">
-            <div class="tile-header">Maka 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana29Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana29Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana30Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana30Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana31Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana31Input2">
+                
+                <select id="wybierz-projekt-4-5" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                       
+                    <option value="Brak produkcji">Brak produkcji</option>
+                    <option value="Przezbrojenie">Przezbrojenie</option>
+                    <option value="Do końca materiału">Do końca materiału</option>
+                    <option value="PSA OWB FD">F44 OWB FD</option>
+                    <option value="PSA OWB RD">F44 OWB RD</option>
+                              </select>
+                              <select id="wybierz-projekt-4-6" name="wybierz-projekt" placeholder="Wybierz Projekt">
+                        <option value=""></option>   
+                                   
+                                <option value="Brak produkcji">Brak produkcji</option>
+                                <option value="Przezbrojenie">Przezbrojenie</option>
+                                <option value="Do końca materiału">Do końca materiału</option>
+                                <option value="PSA OWB FD">PSA OWB FDr</option>
+                                <option value="PSA OWB RD">PSA OWB RD</option>
+                                <option value="C257 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB FD">C257 OWB FD</option>
+                                <option value="G60 OWB RD">C257 OWB FD</option>
+                                          </select>
+                                          <br><br>  
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input1">
+                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana6Input2">
             </div>
         </div>
 
 
-        <!-- Aida 110 -->
-        <div class="tile">
-            <div class="tile-header">Aida 110</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana32Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana32Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana33Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana33Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana34Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana34Input2">
-            </div>
-        </div>
 
-        <!-- Giętarka 2D 2 -->
-        <div class="tile">
-            <div class="tile-header">Giętarka 2D 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana35Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana35Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana36Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana36Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana37Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana37Input2">
-            </div>
-        </div>
 
-        <!-- Wensing 1 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 1</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana38Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana38Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana39Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana39Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana40Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana40Input2">
-            </div>
-        </div>
 
-        <!-- Wensing 2 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 2</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana41Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana41Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana42Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana42Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana43Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana43Input2">
-            </div>
-        </div>
 
-        <!-- Wensing 3 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 3</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana44Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana44Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana45Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana45Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana46Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana46Input2">
-            </div>
-        </div>
 
-        <!-- Wensing 4 -->
-        <div class="tile">
-            <div class="tile-header">Wensing 4</div>
-            <div>
-                <div class="change-title">Zmiana 1</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana47Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana47Input2">
-                <div class="change-title">Zmiana 2</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana48Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana48Input2">
-                <div class="change-title">Zmiana 3</div>
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana49Input1">
-                <input type="text" class="change-input zmiana-input" placeholder="Wybierz Operatora" data-zmiana="zmiana49Input2">
-            </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
     </div>
 
     <script>
-        // Wstaw aktualną datę z godziną i minutą przy załadowaniu strony
-        document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDateTime();
+        
+        document.addEventListener('DOMContentLoaded', function () {
 
-        // Pobierz dane z localStorage i ustaw wartości pól dla Wirtz 1
-        const wybierzProjekt1 = document.getElementById('wybierz-projekt-1');
-        wybierzProjekt1.value = localStorage.getItem('wybierz-projekt-1') || '';
-        const zmianaInputs = document.querySelectorAll('.zmiana-input');
-        zmianaInputs.forEach(input => {
-            const localStorageKey = input.getAttribute('data-zmiana');
-            input.value = localStorage.getItem(localStorageKey) || '';
-            // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
-            input.addEventListener('input', updateLocalStorage);
-        });
-        // Dodaj event listener dla wybierzProjekt1, aby aktualizować dane w localStorage po zmianie wyboru
-        wybierzProjekt1.addEventListener('change', updateLocalStorage);
 
-        // Funkcja aktualizująca datę z godziną i minutą
-        function getCurrentDateTime() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = (now.getMonth() + 1).toString().padStart(2, '0');
-            const day = now.getDate().toString().padStart(2, '0');
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            return `${year}-${month}-${day} ${hours}:${minutes}`;
-        }
+            
+             // Pobierz przycisk "Wyczyść Operatorów" i dodaj do niego obsługę kliknięcia
+             const clearOperatorsButton = document.getElementById('clearOperators');
+             clearOperatorsButton.addEventListener('click', clearAllOperators);
+ 
+             // Funkcja obsługująca kliknięcie przycisku "Wyczyść Operatorów"
+             function clearAllOperators() {
+                 // Pobierz wszystkie pola tekstowe zmiany-input
+                 const zmianaInputs = document.querySelectorAll('.zmiana-input');
+ 
+                 // Iteruj przez każde pole tekstowe zmiany-input i wyczyść jego zawartość
+                 zmianaInputs.forEach(input => {
+                     input.value = '';
+                     const localStorageKey = input.id || input.getAttribute('data-zmiana');
+                     localStorage.removeItem(localStorageKey); // Usuń wartość z localStorage
+                 });
+             }
+            // Wstaw aktualną datę z godziną i minutą przy załadowaniu strony
+            document.getElementById('currentDate').innerText = 'Data: ' + getCurrentDateTime();
+        
+            // Pobierz wszystkie pola wyboru projektów
+            const wybierzProjekty = document.querySelectorAll('[id^="wybierz-projekt-"]');
+            
+            // Iteruj przez każde pole wyboru projektu
+            wybierzProjekty.forEach(wybierzProjekt => {
+                // Pobierz identyfikator aktualnego pola wyboru projektu
+                const id = wybierzProjekt.id;
+        
+                // Pobierz dane z localStorage i ustaw wartości pól dla danego pola wyboru
+                wybierzProjekt.value = localStorage.getItem(id) || '';
+        
+                // Dodaj event listenery do pól, aby aktualizować dane w localStorage po zmianie
+                wybierzProjekt.addEventListener('change', updateLocalStorage);
+            });
+        
+            // Pobierz wszystkie pola tekstowe zmiany-input
+            const zmianaInputs = document.querySelectorAll('.zmiana-input');
+        
+            // Iteruj przez każde pole tekstowe zmiany-input
+            zmianaInputs.forEach(input => {
+                // Pobierz atrybut data-zmiana aktualnego pola tekstowego zmiany-input
+                const localStorageKey = input.getAttribute('data-zmiana');
+        
+                // Pobierz dane z localStorage i ustaw wartość pola tekstowego
+                input.value = localStorage.getItem(localStorageKey) || '';
+        
+                // Dodaj event listenery do pól, aby aktualizować dane w localStorage po wpisaniu
+                input.addEventListener('input', updateLocalStorage);
+            });
+        
+            // Funkcja aktualizująca datę z godziną i minutą
+            function getCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                const day = now.getDate().toString().padStart(2, '0');
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}`;
+            }
+        
+            // Funkcja aktualizująca dane w localStorage
+            function updateLocalStorage(event) {
+                const input = event.target;
+                const localStorageKey = input.id || input.getAttribute('data-zmiana');
+        
+                // Sprawdź, czy wartość istnieje, zanim zapiszesz ją do localStorage
+                if (input.value.trim() !== "") {
+                    localStorage.setItem(localStorageKey, input.value);
+                }
+            }
+            // Funkcja aktualizująca dane w localStorage
+function updateLocalStorage(event) {
+    const input = event.target;
+    const localStorageKey = input.id || input.getAttribute('data-zmiana');
 
-        // Funkcja aktualizująca dane w localStorage
-        function updateLocalStorage(event) {
-            const input = event.target;
-            const localStorageKey = input.getAttribute('data-zmiana') || 'wybierz-projekt-1';
-            localStorage.setItem(localStorageKey, input.value);
-        }
-
-        // Lista plików HTML do przełączania
-const filesToSwitch = ['praca.html', 'praca2.html'];
-
-// Funkcja do przełączania między plikami co minutę
-function switchHTMLFile() {
-    let currentIndex = 0;
-
-    // Funkcja, która zmienia plik HTML
-    function changeFile() {
-        const currentFile = filesToSwitch[currentIndex];
-        window.location.href = currentFile;
+    // Sprawdź, czy wartość istnieje, zanim zapiszesz ją do localStorage
+    if (input.value.trim() !== "") {
+        localStorage.setItem(localStorageKey, input.value);
+    } else {
+        // Jeśli wartość została usunięta, usuń ją z localStorage
+        localStorage.removeItem(localStorageKey);
     }
-
-    // Uruchom funkcję zmiany pliku co minutę
-    setInterval(() => {
-        changeFile();
-        currentIndex = (currentIndex + 1) % filesToSwitch.length;
-    }, 10000); // 60000 milisekund to 1 minuta
 }
-
-// Wywołaj funkcję, aby rozpocząć automatyczne przełączanie plików
-switchHTMLFile();
+        });
     </script>
 </body>
 
